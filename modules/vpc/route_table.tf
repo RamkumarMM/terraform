@@ -14,7 +14,7 @@ resource "aws_route_table" "main" {
 
 ## Associating public subnet to internet access route table ##
 resource "aws_route_table_association" "internet_access" {
-  count = length(var.public_subnet)
+  count = length(var.public_subnet_cidr)
   subnet_id      =  aws_subnet.public_sbt[count.index].id
   route_table_id = aws_route_table.main.id
 }
