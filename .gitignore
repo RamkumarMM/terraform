@@ -4,3 +4,4 @@ terraform.iml
 provider.tf
 .terraform/
 .idea/
+ssh-key/

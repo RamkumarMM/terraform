@@ -37,3 +37,8 @@ variable "sg" {
   type = list(string)
   default = [ "dev-sg" ]
 }
+
+variable "remote_commands" {
+  type = list(string)
+  default = [ "sudo yum update -y"]
+}

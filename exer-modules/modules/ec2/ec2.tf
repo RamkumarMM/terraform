@@ -8,4 +8,14 @@ resource "aws_instance" "ec2" {
   associate_public_ip_address = var.ec2_public_ip
   subnet_id = var.subnet_id
   vpc_security_group_ids = var.sg
+
+  provisioner "remote-exec" {
+    inline = var.remote_commands
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      private_key = file("../../ssh-key/id_rsa")
+      host = self.public_ip
+    }
+  }
 }

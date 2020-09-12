@@ -16,7 +16,14 @@ resource "aws_security_group" "dymanic_sg" {
     }
   }
 
-  /*dynamic "egress" {
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+/*  dynamic "egress" {
     for_each = var.sg_egress_ports
     iterator = port
     content {
@@ -26,5 +33,6 @@ resource "aws_security_group" "dymanic_sg" {
       cidr_blocks = [
         "0.0.0.0/0"]
     }
-  }*/
+  }
+*/
 }
