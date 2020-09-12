@@ -35,6 +35,7 @@ output "sgs" {
   value = module.create_vpc.available_sgs
 }
 
+
 module "create_ec2" {
   source = "../modules/ec2"
   no_of_ec2_instances = 2
@@ -44,7 +45,7 @@ module "create_ec2" {
   ec2_instance_type = "t2.micro"
   ec2_public_ip = true
   ec2_az = "ap-south-1a"
-  subnet_id = "subnet-0b0fcbe41a4d73e01"
+  subnet_id = module.create_vpc.available_subnets
   sg = [ "${module.create_vpc.available_sgs}" ]
 }
 

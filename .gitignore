@@ -1,0 +1,6 @@
+terraform.tfstate*
+terraform.iml
+.terraform.tfstate.lock.info
+provider.tf
+.terraform/
+.idea/
